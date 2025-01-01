@@ -2,10 +2,59 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=src/html/demo.html">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Flomo - 温暖的笔记空间</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="public/icons/icon-192x192.png">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 </head>
 <body>
-    <p>Redirecting to the app...</p>
+    <div class="mobile-container">
+        <div class="note-input">
+            <textarea id="noteInput" placeholder="写下此刻的想法..."></textarea>
+            <div class="note-stats">
+                <span>笔记数：<span id="noteCount">0</span></span>
+                <span>总字数：<span id="wordCount">0</span></span>
+            </div>
+            <div class="button-group">
+                <button id="saveNote" class="primary-button">保存 (Ctrl + Enter)</button>
+                <a href="src/html/review.html" class="review-button">每日回顾</a>
+            </div>
+        </div>
+
+        <div class="analytics-section">
+            <h2>数据分析</h2>
+            <div class="chart-container">
+                <div id="heatmap"></div>
+            </div>
+            <div class="analytics-info">
+                <div class="info-card">
+                    <div class="info-icon">📅</div>
+                    <div class="info-content">
+                        <div class="info-label">写作最多的月份</div>
+                        <div class="info-value" id="topMonth">-</div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">✍️</div>
+                    <div class="info-content">
+                        <div class="info-label">平均每天字数</div>
+                        <div class="info-value" id="avgWordsPerDay">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-container" id="notesContainer">
+            <!-- Notes will be added here -->
+        </div>
+    </div>
+    <script src="src/js/heatmap.js"></script>
+    <script src="src/js/script.js"></script>
 </body>
 </html>
