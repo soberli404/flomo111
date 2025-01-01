@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flomo - 温暖的笔记空间</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stats-panel">
+        <div class="stat-item">
+            <span class="stat-label">笔记数：</span>
+            <span id="noteCount">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">总字数：</span>
+            <span id="wordCount">0</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="note-input">
+            <textarea id="noteInput" placeholder="写下此刻的想法..."></textarea>
+            <button id="saveNote">保存 (Ctrl + Enter)</button>
+        </div>
+        <div class="notes-container" id="notesContainer">
+            <!-- Notes will be added here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>每日回顾 - Flomo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <style>
+        .review-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .review-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .review-header h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .review-header .review-date {
+            color: #666;
+            font-size: 14px;
+        }
+        .review-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .stat-box {
+            text-align: center;
+        }
+        .stat-box .number {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .stat-box .label {
+            font-size: 14px;
+            color: #666;
+        }
+        .review-filters {
+            margin-bottom: 20px;
+        }
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: #f0f0f0;
+            color: #666;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .filter-btn.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .review-notes {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .review-notes .note-content {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .review-notes .note-time {
+            color: #999;
+            font-size: 12px;
+        }
+        .review-notes .time-ago {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #666;
+        }
+        .quick-actions {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        .quick-actions button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .quick-actions button i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="review-container">
+        <div class="review-header">
+            <h1>每日回顾</h1>
+            <div class="review-date" id="currentDate"></div>
+        </div>
+
+        <div class="review-stats">
+            <div class="stat-box">
+                <div class="number" id="totalNotes">0</div>
+                <div class="label">总笔记数</div>
+            </div>
+            <div class="stat-box">
+                <div class="number" id="todayNotes">0</div>
+                <div class="label">今日新增</div>
+            </div>
+            <div class="stat-box">
+                <div class="number" id="streakDays">0</div>
+                <div class="label">连续天数</div>
+            </div>
+        </div>
+
+        <div class="review-filters">
+            <button class="filter-btn active" data-filter="random">随机漫步</button>
+            <button class="filter-btn" data-filter="today">今日回顾</button>
+            <button class="filter-btn" data-filter="week">本周精选</button>
+            <button class="filter-btn" data-filter="month">月度回顾</button>
+            <button class="filter-btn" data-filter="favorite">我的收藏</button>
+        </div>
+
+        <div class="review-notes" id="reviewNotes">
+            <!-- Notes will be added here -->
+        </div>
+    </div>
+
+    <div class="quick-actions">
+        <button onclick="window.location.href='demo.html'">
+            <i class="ri-home-line"></i>
+            <span>返回主页</span>
+        </button>
+        <button id="refreshNotes">
+            <i class="ri-refresh-line"></i>
+            <span>换一批</span>
+        </button>
+        <button id="shareReview">
+            <i class="ri-share-line"></i>
+            <span>分享回顾</span>
+        </button>
+    </div>
+
+    <script src="../js/review.js"></script>
+</body>
+</html>
